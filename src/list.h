@@ -65,6 +65,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *          -   list_next
  *          -   list_size
  *          -   list_empty
+ *          -   list_contains
  *      Array Interfacing:
  *          -   list_index_of
  *          -   list_at
@@ -274,6 +275,26 @@ int list_empty(const List *list);
  * @return                      The index of the @ref node in the @ref list.
  */
 size_t list_index_of(const List *list, const ListNode *node);
+
+/**
+ * Determines if the @ref node exists in the @ref list.
+ *
+ * Requirements:
+ *      -   @ref list != NULL
+ *      -   @ref node != NULL
+ *
+ * Time complexity:
+ *      -   If front/back:
+ *          -   O(1)
+ *      -   Else:
+ *          -   On average:     O(n/2)
+ *          -   Worst case:     O(n)
+ *
+ * @param list                   The @ref List to be searched
+ * @param node                   The @ref ListNode to be searched for
+ * @return                       The @ref node exists in the @ref list
+ */
+bool list_contains(const List *list, const ListNode *node);
 
 /**
  * Retrieves the @ref ListNode at the @ref index.
