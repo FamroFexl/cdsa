@@ -81,6 +81,20 @@ size_t list_index_of(const List *list, const ListNode *node) {
     return (size_t) -1;
 }
 
+bool list_contains(const List *list, const ListNode *node) {
+    assert(list && node);
+
+    if (list->tail == node) return true;
+
+    ListNode *n;
+    list_for_each(n, list)
+    {
+        if (n == node) return true;
+    }
+
+    return false;
+}
+
 ListNode* list_at(const List *list, size_t index) {
     ListNode *n;
     size_t i;
